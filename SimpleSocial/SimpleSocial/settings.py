@@ -45,9 +45,11 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'groups.apps.GroupsConfig',
     'posts.apps.PostsConfig',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,3 +132,7 @@ STATICFILES_DIRS = [BASE_DIR.joinpath('static'),]
 
 LOGIN_REDIRECT_URL = 'test'
 LOGOUT_REDIRECT_URL = 'thanks'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
