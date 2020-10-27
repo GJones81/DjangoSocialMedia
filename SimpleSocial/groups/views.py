@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.db import IntegrityError
 from django.shortcuts import get_object_or_404
 from django.views import generic
+from django.contrib import messages
 
 from groups.models import Group, GroupMember
 from . import models
@@ -14,7 +15,7 @@ from . import models
 # Create your views here.
 class CreateGroup(LoginRequiredMixin, generic.CreateView):
     fields = ('name', 'description')
-    models = Group
+    model = Group
 
 class SingleGroup(generic.DetailView):
     model = Group
