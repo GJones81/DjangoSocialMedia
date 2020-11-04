@@ -1,7 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from accounts.models import User
-import json
 
 class TestViews(TestCase):
 
@@ -27,5 +26,4 @@ class TestViews(TestCase):
         response = self.client.get(self.logout_url)
 
         self.assertEquals(response.status_code, 302)
-        # This line throws an error 'AssertionError: No templates used to render the response'
-        # self.assertTemplateUsed(response, 'templates/thanks.html')
+        self.assertRedirects(response, '/thanks/')
